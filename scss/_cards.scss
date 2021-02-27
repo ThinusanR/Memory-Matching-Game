@@ -1,0 +1,52 @@
+@mixin difficultySelect($rows, $size) {
+  display: grid;
+  grid-template-columns: repeat($rows, $size);
+  grid-template-rows: repeat($rows, $size);
+  justify-content: center;
+  width: 50%;
+  column-gap: 10px;
+  row-gap: 10px;
+  margin: 10px auto;
+}
+.card {
+  border-radius: 10px;
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.05);
+  perspective: 1000px;
+  cursor: pointer;
+  .card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.5s;
+    transform-style: preserve-3d;
+    border-radius: 10px;
+    &.is-flipped {
+      transform: rotateY(180deg);
+      pointer-events: none;
+    }
+    .card-front {
+      border-radius: 10px;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: #1f2940;
+      box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.05);
+      backface-visibility: hidden;
+    }
+    .card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: #676df6;
+      transform: rotateY(180deg);
+      border-radius: 10px;
+      backface-visibility: hidden;
+      color: $textColor;
+      text-align: center;
+    }
+  }
+}
+
+.card-front:hover {
+  border: 5px solid #676df6;
+}

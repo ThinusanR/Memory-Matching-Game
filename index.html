@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap"
+      rel="stylesheet"
+    />
+    <title>Matching Game</title>
+  </head>
+  <body>
+    <header>
+      <h1>Welcome to Matching Game</h1>
+      
+      <div id="nav">
+        <div id="user-stats">
+          <p>Time: <span id="min">00</span>:<span id="sec">00</span></p>
+          <p>Moves: <span id="moves">0</span></p>
+        </div>
+        
+        <div id="btn-container">
+          <button id="reset-nav">reset <i class="fas fa-redo-alt"></i></button>
+          
+
+           <button value="4" id="easy" class="difficulty selected">Easy</button>
+          <button value="6" id="medium" class="difficulty">Medium</button>
+          <button value="8" id="hard" class="difficulty">Hard</button> 
+          
+          
+        </div>
+      </div>
+    </header>
+    <main>
+      <div id="game-container"></div>
+    </main>
+    <div class="winning-message" id="winningMessage">
+      <h1>Congrats</h1>
+      <p>It took you a time of <span id="min-final">00</span>:<span id="sec-final">00</span> and <span id="moves-final">0</span> moves
+      to finish the game</p>
+      <button id="reset-final">reset</button>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>

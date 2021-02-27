@@ -1,0 +1,61 @@
+@mixin difficultyBtn($color, $new) {
+    background-color: $color;
+    border-radius: 10px;
+    border: 1px solid $new;
+    display: inline-block;
+    cursor: pointer;
+    color: $new;
+    font-family: Arial;
+    font-size: 17px;
+    padding: 16px 31px;
+    text-decoration: none;
+    outline: none;
+    margin-right: 20px;
+    text-transform: uppercase;
+  }
+  #reset-nav{
+    @include difficultyBtn(#c72727, $textColor);
+    
+    &:hover {
+      @include difficultyBtn(#ffffff,#c72727 );
+    }
+    
+  
+  }
+  #reset-final{
+    @include difficultyBtn(#c72727, $textColor);
+    margin-top: 50px;
+    
+    &:hover {
+      @include difficultyBtn(#ffffff,#c72727 );
+    }
+    
+  
+  }
+  #easy {
+    @include difficultyBtn(#1f2940, #4cceac);
+    &:hover {
+      @include difficultyBtn(#4cceac, $textColor);
+    }
+    &.selected {
+      @include difficultyBtn(#4cceac, $textColor);
+    }
+  }
+  #medium {
+    @include difficultyBtn(#1f2940, #f8b262);
+    &:hover {
+      @include difficultyBtn(#f8b262, $textColor);
+    }
+    &.selected {
+      @include difficultyBtn(#f8b262, $textColor);
+    }
+  }
+  #hard {
+    @include difficultyBtn(#1f2940, #db504a);
+    &:hover {
+      @include difficultyBtn(#db504a, $textColor);
+    }
+    &.selected {
+      @include difficultyBtn(#db504a, $textColor);
+    }
+  }
