@@ -126,7 +126,7 @@ function gameStart(size) {
                 cardBack[secondCard].classList.remove("match");
                 secondCard = "";
                 firstCard = "";
-              }, 500);
+              }, 400);
 
               cardActive = false;
               matchs += 1;
