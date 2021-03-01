@@ -1,14 +1,14 @@
-//game setup 
+//game setup
 function intializeGame(size = 4) {
   const resetBtn = document.querySelector("#reset-nav");
   createCardClass(size);
   gameStart(size);
   gameDifficultySelection();
-  resetBtn.addEventListener("click", ()=>{
+  resetBtn.addEventListener("click", () => {
     reset(size);
   });
 }
-//handles the game difficulty settings when clicked 
+//handles the game difficulty settings when clicked
 function gameDifficultySelection() {
   const difficultyBtn = document.querySelectorAll(".difficulty");
   const gameContainer = document.querySelector("#game-container");
@@ -89,7 +89,6 @@ function gameStart(size) {
   const numOfMoves = document.querySelector("#moves");
   const min = document.querySelector("#min");
   const sec = document.querySelector("#sec");
-  
   const winningMessageElement = document.querySelector("#winningMessage");
   const resetBtn = document.querySelector("#reset-final");
 
@@ -102,12 +101,11 @@ function gameStart(size) {
         }
         if (!cardActive && !firstCard) {
           firstCard = i;
-
           let [row, col] = positionLookUp(firstCard, size, size);
           cardBackSide[firstCard].innerText = gameBoard[row][col];
           cardActive = true;
-
           cards[firstCard].classList.toggle("is-flipped");
+        
         } else if (cardActive && firstCard !== "" && secondCard === "") {
           secondCard = i;
 
@@ -126,7 +124,7 @@ function gameStart(size) {
               setTimeout(function () {
                 cardBack[firstCard].classList.remove("match");
                 cardBack[secondCard].classList.remove("match");
-                secondCard = ""; 
+                secondCard = "";
                 firstCard = "";
               }, 500);
 
@@ -138,7 +136,8 @@ function gameStart(size) {
                 gameOver = true;
                 clearInterval(timer.interval);
                 winningMessageElement.classList.add("show");
-                document.querySelector("#moves-final").innerText = numOfMoves.innerText;
+                document.querySelector("#moves-final").innerText =
+                  numOfMoves.innerText;
                 document.querySelector("#min-final").innerText = min.innerText;
                 document.querySelector("#sec-final").innerText = sec.innerText;
                 resetBtn.addEventListener("click", () => {
@@ -172,10 +171,9 @@ function gameStart(size) {
   }
 }
 
-//lookup a position in a 2d array using the index of 1d array 
+//lookup a position in a 2d array using the index of 1d array
 function positionLookUp(index, cols, rows) {
-  
-  for (var i = 0; i < rows; i++) {
+  for (let i = 0; i < rows; i++) {
     //check if the index parameter is in the row
     if (index < cols * i + cols && index >= cols * i) {
       //return x, y
@@ -221,13 +219,14 @@ function createCardClass(size) {
 //creates a 2d array filled with duplicate shuffled numbers
 function makeGameboard(boardSize) {
   const items = [];
-  for (let i = 1; i <= (boardSize * boardSize) / 2; i++) { //initalize the numbers
+  for (let i = 1; i <= (boardSize * boardSize) / 2; i++) {
+    //initalize the numbers
     items.push(i);
     items.push(i);
   }
   const shuffledItems = shuffleCards(items);
   const board = [];
-  for (let i = 0; i < boardSize; i++) { 
+  for (let i = 0; i < boardSize; i++) {
     board[i] = [];
     for (let j = 0; j < boardSize; j++) {
       board[i][j] = shuffledItems.splice(0, 1); //add shuffled nums into board and delete the num after adding it in
